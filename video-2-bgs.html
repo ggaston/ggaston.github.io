@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Video</title>
+    <script>
+        function onPlayHandler(el){
+
+        }
+
+        function onCanPlayHandler(el){
+
+        }
+    </script>
+    <style>
+    body {
+        margin: 0;
+    }
+
+    #video-bg {
+        height: 100%;
+        width: 100%;
+        background-color: rgb(255,255,255);
+    }
+
+    #my-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 640px;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+   
+        <video id="video-bg" preload="metadata">
+            <source src="assets/violet-bg-only.mp4" type="video/mp4">
+        </video>
+        <video id="my-video" preload="metadata" autoplay muted loop onplay="onPlayHandler(this)" oncanplay="onCanPlayHandler(this)">
+                <source src="assets/violet-bg-640.mp4" type="video/mp4">
+        </video>
+
+</body>
+</html>
