@@ -1,0 +1,48 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Video</title>
+    <script>
+        function onPlayHandler(el){
+
+        }
+
+        function onCanPlayHandler(el){
+
+        }
+    </script>
+    <style>
+    body {
+        margin: 0;
+        background-color: rgba(38, 29, 106, 255);
+        color: #fff;
+    }
+
+    .gradient-border {
+        position: absolute;
+        background: radial-gradient(
+           
+            rgba(38, 29, 106, 0) 0,
+            rgba(38, 29, 106, 255) 80%
+        );
+        height: 480px;
+        width: 640px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <h3>h.254</h3>
+        <div class="gradient-border"> 
+            
+        </div>
+        <video id="my-video" preload="metadata" autoplay muted loop onplay="onPlayHandler(this)" oncanplay="onCanPlayHandler(this)">
+                <source src="assets/violet-bg-640.mp4" type="video/mp4">
+            </video>
+    </div>
+
+</body>
+</html>
