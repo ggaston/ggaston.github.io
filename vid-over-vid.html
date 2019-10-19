@@ -15,6 +15,13 @@
     <style>
     body {
         margin: 0;
+        background-color: rgb(38, 29, 106);
+    }
+
+    .video-container {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
     }
 
     .video-bg {
@@ -47,13 +54,17 @@
     </style>
 </head>
 <body>
+
+     <div class="video-container">
    
-        <video id="video-bg" preload="metadata">
+        <video id="video-bg" class="video-bg" preload="metadata">
             <source src="assets/violet-bg-only.mp4" type="video/mp4">
         </video>
         <video id="my-video" preload="metadata" autoplay muted loop onplay="onPlayHandler(this)" oncanplay="onCanPlayHandler(this)">
                 <source src="assets/violet-bg-640.mp4" type="video/mp4">
         </video>
+
+    </div>
 
 </body>
 </html>
