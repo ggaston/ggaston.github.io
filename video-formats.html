@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Video</title>
+    <script>
+        function onPlayHandler(el){
+
+        }
+
+        function onCanPlayHandler(el){
+
+        }
+    </script>
+    <style>
+    body {
+        margin: 0;
+        background-color: rgba(38, 29, 106, 255);
+        color: #fff;
+    }
+
+    video {
+        margin: 200px;
+    }
+
+    </style>
+</head>
+<body>
+
+     <div class="video-container">
+
+        <h3>h.254</h3>    
+        <video id="my-video" preload="metadata" autoplay muted loop onplay="onPlayHandler(this)" oncanplay="onCanPlayHandler(this)">
+            <source src="assets/violet-bg-640.mp4" type="video/mp4">
+        </video>
+   
+        <h3>h.256</h3>
+        <video id="video-bg" class="video-bg" preload="metadata" autoplay muted loop>
+            <source src="assets/violet-bg-h265.mp4" type="video/mp4">
+        </video>
+
+        <h3>webm</h3>
+        <video preload="metadata" autoplay muted loop onplay="onPlayHandler(this)" oncanplay="onCanPlayHandler(this)">
+                <source src="assets/violet-bg.webm" type="video/webm">
+        </video>
+
+        <h3>mobile</h3>
+        <video preload="metadata" autoplay muted loop onplay="onPlayHandler(this)" oncanplay="onCanPlayHandler(this)">
+                <source src="assets/violet-bg-mobile-360p.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+</body>
+</html>
