@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Video</title>
+    <script>
+        function isColorInRange(expectedColor, givenColor) {
+            const THRESHOLD = 40;
+            for (var i = 0; i < 3; i++) {
+                if (((expectedColor[i] - THRESHOLD) > givenColor[i]) 
+                 || ((expectedColor[i] + THRESHOLD) < givenColor[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function setVideoBgColor(vid, nativeColor) {
+            if (vid) {
+                var vidBg = vid.parentElement;
+                if (vidBg) {
+                    // draw first pixel of video to a canvas
+                    // then get pixel color from that canvas
+                    var canvas = document.createElement("canvas");
+                    canvas.width = 1;
+                    canvas.height = 1;
+                    var ctx = canvas.getContext("2d");
+                    ctx.drawImage(vid, 0, 0, 1, 1);
+
+                    var p = ctx.getImageData(0, 0, 1, 1).data;
+                    //console.log("rgb(" + p[0] + "," + p[1] + "," + p[2] + ")");
+                    //if (isColorInRange(nativeColor, p)) {        
+                        vidBg.style.backgroundColor = "rgb(" + p[0] + "," + p[1] + "," + p[2] + ")";
+                    //}
+                    vid.start();
+                }
+            }
+        }
+
+        function setVideoBgColorDelayed(vid, nativeColor) {
+            setTimeout(setVideoBgColor, 100, vid, nativeColor);
+        }
+    </script>
+    <style>
+    body {
+        margin: 0;
+    }
+
+    #my-video-bg {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background-color: rgb(8,31,60);
+    }
+
+    #my-video {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+<body>
+    <div id="my-video-bg">
+        <video id="my-video" preload="metadata" autoplay muted loop onplay="setVideoBgColorDelayed(this,[8,31,60])" oncanplay="setVideoBgColorDelayed(this,[8,31,60])" controls>
+            <source src="assets/violet-bg-640.mp4" type="video/mp4">
+        </video>
+    </div>
+</body>
+</html>
